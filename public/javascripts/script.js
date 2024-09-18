@@ -1,7 +1,6 @@
-// Canvas Related
 const canvas = document.createElement("canvas");
 const context = canvas.getContext("2d");
-const socket = io();
+const socket = io("/pong");
 let isReferee = false;
 let paddleIndex = 0;
 
@@ -204,7 +203,7 @@ function startGame() {
 loadGame();
 
 socket.on("connect", () => {
-  console.log("Connected as ...", socket.id);
+  console.log("Connected as...", socket.id);
 });
 
 socket.on("startGame", (refereeId) => {
